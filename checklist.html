@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PR Secure Logistics - Project Plan</title>
+    <!-- Loads Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Loads the "Inter" font family -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6; /* Tailwind gray-100 */
+        }
+        /* Style for a completed task */
+        .task-item.completed {
+            opacity: 0.6;
+        }
+        .task-item.completed .task-name,
+        .task-item.completed .task-notes {
+            text-decoration: line-through;
+            color: #6b7280; /* Tailwind gray-500 */
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header -->
+    <header class="bg-white shadow-md">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-5">
+            <h1 class="text-2xl font-bold text-gray-900">PR Secure Logistics - Project Plan</h1>
+        </div>
+    </header>
+
+    <!-- Checklist Container -->
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+        <div id="checklist-container" class="space-y-8">
+            <!-- Phases will be dynamically inserted here by JavaScript -->
+        </div>
+    </main>
+
+    <!-- Embedded CSV Data -->
+    <script id="csv-data" type="text/csv">
+Phase,Task,Status,Owner,Notes
+Phase 1: Legal & Brand Foundation,Hire Puerto Rico attorney (specializing in Act 60 & GovCon),To-Do,Damon,CRITICAL: Must understand both PR tax law and Federal contracting compliance.
+Phase 1: Legal & Brand Foundation,Form "PR Secure Logistics LLC" in Puerto Rico,To-Do,Damon,Use the name exactly as registered on all future documents.
+Phase 1: Legal & Brand Foundation,Get Federal EIN from IRS,To-Do,Damon,Required for SAM.gov and bank account.
+Phase 1: Legal & Brand Foundation,Open LLC Business Bank Account (in Puerto Rico),To-Do,Damon,Required for SAM.gov registration.
+Phase 1: Legal & Brand Foundation,Register domain prsecurelogistics.com,DONE,Damon,"Secured on GoDaddy, 11/05/2025"
+Phase 1: Legal & Brand Foundation,Set up business email (damon@prsecurelogistics.com),DONE,Damon,"Using Google Workspace, 11/05/2025"
+Phase 1: Legal & Brand Foundation,Deploy v1 website (index.html + logo) to GitHub,To-Do,Damon,Create a new repo and push both files.
+Phase 1: Legal & Brand Foundation,Link GitHub repo to Vercel and deploy,To-Do,Damon,This makes the site live at pr-secure-logistics.vercel.app (or custom domain).
+Phase 2: Federal Registration,Complete SAM.gov Registration,To-Do,Damon,Use legal name, EIN, bank info, and new UEI. This is non-negotiable.
+Phase 2: Federal Registration,Add NAICS Code: 423420 (Office Equipment),To-Do,Damon,This is our primary code for shredders, cameras, UPS, etc.
+Phase 3: SBA Certification,Apply for WOSB (Women-Owned Small Business) Certification,To-Do,Damon,Use wosb.certify.sba.gov. Must prove 51% ownership AND control.
+Phase 3: SBA Certification,Apply for HUBZone Certification,To-Do,Damon,This is our PR advantage. Requires principal office in PR and 35% of employees to reside in a HUBZone.
+Phase 4: Supply Chain Setup,Get PR Resale Certificate,To-Do,Damon,From PR Dept. of Treasury (Hacienda). Required by distributors to avoid sales tax.
+Phase 4: Supply Chain Setup,Apply for Partner Programs (Manufacturers),To-Do,Damon,"Target: Hanwha, Axis, Panasonic, Dell, Eaton (Tripp Lite), Getac"
+Phase 4: Supply Chain Setup,Apply for Reseller Accounts (Distributors),To-Do,Damon,"CRITICAL: Start with TD Synnex (GovSolv) and Ingram Micro (Public Sector)"
+Phase 4: Supply Chain Setup,Get Distributor Credit Lines,To-Do,Damon,Will likely have to pre-pay/use CC for first 3-5 orders. Start building this relationship.
+Phase 5: Pipeline & Tools Setup,Subscribe to cleat.ai (Essential Plan),To-Do,Damon,This will be our primary pipeline tool ($375/mo).
+Phase 5: Pipeline & Tools Setup,Configure cleat.ai Profile,To-Do,Damon,"Input NAICS, WOSB/HUBZone certs, and keywords (TAA, NDAA, shredder, camera, rugged, UPS)"
+Phase 5: Pipeline & Tools Setup,Set up Zapier Integration: cleat.ai -> Google Calendar,To-Do,Damon,Auto-add bid deadlines to our calendar.
+Phase 5: Pipeline & Tools Setup,Set up Accounting,To-Do,Damon,Get QuickBooks Online. This is for POs, Invoices, and P&L.
+Phase 6: Go Live (First Bid),Identify sub-$25k RFQ via cleat.ai,To-Do,Damon,"Look for WOSB or HUBZone set-asides matching our niches (shredder, camera, UPS)"
+Phase 6: Go Live (First Bid),Get Quote from Distributor,To-Do,Damon,Email our rep at TD Synnex/Ingram for our cost.
+Phase 6: Go Live (First Bid),Run Profit Analysis,To-Do,Damon,Ensure bid is (Award Price - Our Cost) / Award Price > 20%.
+Phase 6: Go Live (First Bid),Generate Bid Package,To-Do,Damon,Use cleat.ai to generate proposal draft. Finalize 2-page PDF quote.
+Phase 6: Go Live (First Bid),Submit Bid,To-Do,Damon,Email final PDF package to CO (Contracting Officer) 24 hours BEFORE deadline.
+Phase 7: Fulfillment (First Win),Receive Award (SF-1449),To-Do,Damon,This is our official, signed contract from the CO.
+Phase 7: Fulfillment (First Win),Send PO to Distributor,To-Do,Damon,Create PO in QuickBooks, email to distributor, pay with cash/CC.
+Phase 7: Fulfillment (First Win),Send Tracking Info to CO,To-Do,Damon,Forward shipping confirmation to CO to show proactiveness.
+Phase 7: Fulfillment (First Win),Confirm Government Acceptance,To-Do,Damon,Email CO after delivery: "Just confirming the items were received and accepted."
+Phase 7: Fulfillment (First Win),Submit "Proper Invoice",To-Do,Damon,Invoice the *exact* billing office listed in the contract. (Triggers payment clock).
+Phase 7: Fulfillment (First Win),Get Paid (Net 30),To-Do,Damon,Track the payment in QuickBooks.
+Phase 7: Fulfillment (First Win),Request CPARS Rating,To-Do,Damon,Email CO: "We'd appreciate a positive CPARS rating for this contract." (This is your REPUTATION).
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            try {
+                // Helper function to escape HTML
+                function escapeHtml(text) {
+                    const div = document.createElement('div');
+                    div.textContent = text;
+                    return div.innerHTML;
+                }
+
+                // 1. Get the CSV data from the script tag
+                const csvScript = document.getElementById('csv-data');
+                if (!csvScript) {
+                    throw new Error('CSV data script tag not found');
+                }
+                const csvData = csvScript.textContent;
+                
+                if (!csvData || csvData.trim().length === 0) {
+                    throw new Error('CSV data is empty');
+                }
+                
+                // 2. Parse the CSV data
+                const lines = csvData.trim().split('\n');
+                if (lines.length < 2) {
+                    throw new Error('CSV data has no content rows');
+                }
+                
+                const headers = lines.shift().split(',');
+                const tasks = lines.map((line, index) => {
+                    // A simple CSV parser that handles commas inside quoted strings
+                    const values = [];
+                    let currentVal = '';
+                    let inQuote = false;
+                    for (const char of line) {
+                        if (char === '"' && !inQuote) {
+                            inQuote = true;
+                            continue;
+                        }
+                        if (char === '"' && inQuote) {
+                            inQuote = false;
+                            continue;
+                        }
+                        if (char === ',' && !inQuote) {
+                            values.push(currentVal.trim());
+                            currentVal = '';
+                            continue;
+                        }
+                        currentVal += char;
+                    }
+                    values.push(currentVal.trim());
+                    
+                    const task = {};
+                    headers.forEach((header, idx) => {
+                        task[header.trim()] = values[idx] || '';
+                    });
+                    return task;
+                }).filter(task => task.Phase && task.Task); // Filter out empty rows
+
+                if (tasks.length === 0) {
+                    throw new Error('No valid tasks found in CSV data');
+                }
+
+                // 3. Group tasks by Phase
+                const phases = {};
+                tasks.forEach(task => {
+                    if (!phases[task.Phase]) {
+                        phases[task.Phase] = [];
+                    }
+                    phases[task.Phase].push(task);
+                });
+
+                // 4. Render the HTML
+                const container = document.getElementById('checklist-container');
+                if (!container) {
+                    throw new Error('Checklist container not found');
+                }
+
+                for (const phaseName in phases) {
+                    // Create phase container
+                    const phaseElement = document.createElement('section');
+                    phaseElement.className = 'bg-white shadow-lg rounded-xl overflow-hidden mb-8';
+                    
+                    // Create phase header
+                    const headerElement = document.createElement('div');
+                    headerElement.className = 'bg-gray-800 text-white p-4 md:p-6';
+                    const phaseTitle = document.createElement('h2');
+                    phaseTitle.className = 'text-2xl font-bold';
+                    phaseTitle.textContent = phaseName;
+                    headerElement.appendChild(phaseTitle);
+                    phaseElement.appendChild(headerElement);
+
+                    // Create task list
+                    const taskList = document.createElement('ul');
+                    taskList.className = 'divide-y divide-gray-200';
+                    
+                    phases[phaseName].forEach(task => {
+                        const isDone = task.Status && task.Status.toLowerCase() === 'done';
+                        
+                        const statusColor = isDone ? 'bg-green-100 text-green-800' : 'bg-blue-100 text-blue-800';
+                        
+                        const taskItem = document.createElement('li');
+                        taskItem.className = `task-item p-4 md:p-6 flex items-start ${isDone ? 'completed' : ''}`;
+                        
+                        // Create checkbox
+                        const checkboxDiv = document.createElement('div');
+                        checkboxDiv.className = 'flex-shrink-0 mt-1';
+                        const checkbox = document.createElement('input');
+                        checkbox.type = 'checkbox';
+                        checkbox.className = 'h-5 w-5 rounded border-gray-300 text-blue-600 focus:ring-blue-500';
+                        checkbox.checked = isDone;
+                        checkboxDiv.appendChild(checkbox);
+                        
+                        // Create content div
+                        const contentDiv = document.createElement('div');
+                        contentDiv.className = 'ml-4 flex-grow';
+                        
+                        // Create header row
+                        const headerRow = document.createElement('div');
+                        headerRow.className = 'flex flex-col sm:flex-row justify-between sm:items-center';
+                        
+                        const taskName = document.createElement('span');
+                        taskName.className = 'task-name text-lg font-medium text-gray-900';
+                        taskName.textContent = task.Task || 'Untitled Task';
+                        
+                        const statusBadge = document.createElement('span');
+                        statusBadge.className = `task-status text-xs font-semibold px-2.5 py-0.5 rounded-full ${statusColor} mt-2 sm:mt-0`;
+                        statusBadge.textContent = task.Status || 'To-Do';
+                        
+                        headerRow.appendChild(taskName);
+                        headerRow.appendChild(statusBadge);
+                        
+                        // Create notes paragraph
+                        const notesPara = document.createElement('p');
+                        notesPara.className = 'task-notes text-gray-600 mt-1';
+                        notesPara.textContent = task.Notes || '';
+                        
+                        contentDiv.appendChild(headerRow);
+                        contentDiv.appendChild(notesPara);
+                        
+                        taskItem.appendChild(checkboxDiv);
+                        taskItem.appendChild(contentDiv);
+                        
+                        // Add interactivity to the checkbox
+                        checkbox.addEventListener('change', function() {
+                            taskItem.classList.toggle('completed', this.checked);
+                        });
+
+                        taskList.appendChild(taskItem);
+                    });
+
+                    phaseElement.appendChild(taskList);
+                    container.appendChild(phaseElement);
+                }
+            } catch (error) {
+                console.error('Error rendering checklist:', error);
+                const container = document.getElementById('checklist-container');
+                if (container) {
+                    container.innerHTML = `
+                        <div class="bg-red-50 border border-red-200 rounded-lg p-6">
+                            <h2 class="text-xl font-bold text-red-800 mb-2">Error Loading Checklist</h2>
+                            <p class="text-red-600">${escapeHtml(error.message)}</p>
+                            <p class="text-sm text-red-500 mt-4">Please check the browser console for more details.</p>
+                        </div>
+                    `;
+                }
+            }
+        });
+    </script>
+</body>
+</html>
